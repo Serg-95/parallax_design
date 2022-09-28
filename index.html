@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Parallax effect</title>
+</head>
+<body>
+    <section class="zoom">
+        <img src="./resources/images/mountain1.png" id="layer-1">
+        <img src="./resources/images/mountain2.png" id="layer-2">
+        <img src="./resources/images/text.png" id="text">
+    </section>
+    <section class="content">
+        <h2>Simple background parallax effect using pure JavaScript</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, eligendi a. Earum at nemo quisquam qui unde, accusamus, tempore eum voluptatum perspiciatis perferendis quaerat ipsum iusto mollitia laudantium, ullam ipsam?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, eligendi a. Earum at nemo quisquam qui unde, accusamus, tempore eum voluptatum perspiciatis perferendis quaerat ipsum iusto mollitia laudantium, ullam ipsam? 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, eligendi a. Earum at nemo quisquam qui unde, accusamus, tempore eum voluptatum perspiciatis perferendis quaerat ipsum iusto mollitia laudantium, ullam ipsam?
+        </p>
+    </section>
+    <script type="text/javascript">
+        
+        var layer_1 = document.getElementById('layer-1')
+        scroll = window.pageYOffset
+        document.addEventListener('scroll', function(e) {
+            var offset = window.pageYOffset
+            scroll = offset
+            layer_1.style.width = (100 + scroll/5) + '%'
+        })
+
+        var layer_2 = document.getElementById('layer-2')
+        scroll = window.pageYOffset
+        document.addEventListener('scroll', function(e) {
+            var offset = window.pageYOffset
+            scroll = offset
+            layer_2.style.width = (100 + scroll/5) + '%'    
+            layer_2.style.left = scroll/50 + '%'
+        })    
+
+        var text = document.getElementById('text')
+        scroll = window.pageYOffset
+        document.addEventListener('scroll', function(e) {
+            var offset = window.pageYOffset
+            scroll = offset
+            layer_2.style.width = (100 + scroll/5) + '%'    
+            text.style.top = - scroll/75 + '%'
+        }) 
+
+    </script>
+</body>
+</html>
